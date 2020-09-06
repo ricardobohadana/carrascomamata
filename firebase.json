@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "carrascomamata",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

@@ -1,0 +1,11 @@
+Pre-release tweaks:
+done{1 - add snacks from material ui to show user that his action of adding a new professor succeeded}
+done{2 - add alert snack from material ui to show user that he needs to be logged to vote}
+3 - add something else to the homepage to indicate that the user needs to login to add a professor or vote
+done{4 - add snack functionality to welcome user after login redirection}
+done(5 - add snack functionality to confirm that user has logged out after disconnecting)
+done{6 - add support to redirect user to the page it was before loggin in}
+done{7 - handling errors on adding professor form and passing it to user}
+
+Future Implementations:
+1 -  Add a comentary box for each professor

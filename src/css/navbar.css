@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: rgb(212, 212, 212);
+}
+
+.nav-item {
+  text-decoration: none;
+  color: inherit;
+  padding: 5px;
+}
+
+.nav-item-right {
+  margin-left: 20px;
+}
