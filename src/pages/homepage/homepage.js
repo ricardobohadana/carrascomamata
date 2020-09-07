@@ -5,10 +5,12 @@ import {
   List,
   ListItem,
   Divider,
+  Button,
 } from "@material-ui/core";
 import { db, auth } from "../../backend/firebase";
 import AddProfessorModal from "../../components/addProfessor";
 import AvisoPaper from "./components/avisoPaper";
+import FeedbackModal from "../../components/feedback";
 
 const useStyles = makeStyles((theme) => ({
   whiteText: {
@@ -72,6 +74,22 @@ const useStyles = makeStyles((theme) => ({
     color: "darkgrey",
     minWidth: 300,
   },
+  buttonMamata: {
+    borderRadius: 0,
+    width: "25%",
+    minWidth: 200,
+    color: "white",
+    backgroundColor: "#60b8fd",
+    "&:hover": {
+      backgroundColor: "#ff8565",
+    },
+  },
+  feedbackDiv: {
+    marginTop: 60,
+    marginBottom: 7,
+    width: "100%",
+    textAlign: "center",
+  },
 }));
 
 export default function Homepage(props) {
@@ -80,6 +98,7 @@ export default function Homepage(props) {
   const [isLogged, setisLogged] = React.useState(false);
   const [professors, setprofessors] = React.useState([]);
   const [openProf, setOpenProf] = React.useState(false);
+  const [openFeedback, setOpenFeedback] = React.useState(false);
   const [searchText, setSearchText] = React.useState("");
   const [searchObject, setSearchObject] = React.useState([]);
 
@@ -89,6 +108,14 @@ export default function Homepage(props) {
 
   const handleCloseProf = () => {
     setOpenProf(false);
+  };
+
+  const handleOpenFeedback = () => {
+    setOpenFeedback(true);
+  };
+
+  const handleCloseFeedback = () => {
+    setOpenFeedback(false);
   };
 
   React.useEffect(() => {
@@ -163,6 +190,22 @@ export default function Homepage(props) {
           </List>
         </div>
       )}
+      <div className={classes.feedbackDiv}>
+        Conte-nos sobre sua experiência com o Carrasco/Mamata! <br /> Opiniões,
+        críticas, novas ideias ou funcionalidades são muito bem-vindas!
+      </div>
+      <Button
+        onClick={handleOpenFeedback}
+        variant="contained"
+        className={`${classes.buttonMamata}`}
+      >
+        Enviar feedback
+      </Button>
+      <FeedbackModal
+        handleOpen={handleOpenFeedback}
+        handleClose={handleCloseFeedback}
+        open={openFeedback}
+      />
       <AddProfessorModal
         handleOpen={handleOpenProf}
         handleClose={handleCloseProf}

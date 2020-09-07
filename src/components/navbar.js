@@ -22,6 +22,8 @@ import AddProfessorModal from "./addProfessor";
 import firebase from "firebase";
 import CustomAlert from "./customAlert";
 import { useLocation } from "react-router-dom";
+import FeedbackModal from "../components/feedback";
+import FeedbackIcon from "@material-ui/icons/Feedback";
 
 const useStyles = makeStyles((theme) => ({
   whiteText: {
@@ -55,6 +57,8 @@ export default function CustomNavbar(props) {
   const [toggleDrawer, setToggleDrawer] = React.useState(false);
   const [isLogged, setisLogged] = React.useState(false);
   const [username, setUsername] = React.useState(undefined);
+  const [openFeedback, setOpenFeedback] = React.useState(false);
+
   const location = useLocation();
 
   React.useEffect(() => {
@@ -69,6 +73,14 @@ export default function CustomNavbar(props) {
       }
     });
   }, [location]);
+
+  const handleOpenFeedback = () => {
+    setOpenFeedback(true);
+  };
+
+  const handleCloseFeedback = () => {
+    setOpenFeedback(false);
+  };
 
   const handleOpenProf = () => {
     setOpenProf(true);
@@ -178,6 +190,15 @@ export default function CustomNavbar(props) {
                   </ListItem>
                 </>
               )}
+              <ListItem button onClick={handleOpenFeedback}>
+                <ListItemIcon className={classes.whiteText}>
+                  <FeedbackIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Feedback"
+                  className={classes.whiteText}
+                />
+              </ListItem>
             </List>
           </SwipeableDrawer>
         </div>
@@ -207,6 +228,11 @@ export default function CustomNavbar(props) {
         handleOpen={handleOpenAlert2}
         message={`Bem vindo, ${username}`}
         carrasco={false}
+      />
+      <FeedbackModal
+        open={openFeedback}
+        handleClose={handleCloseFeedback}
+        handleOpen={handleOpenFeedback}
       />
     </>
   );

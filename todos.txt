@@ -6,6 +6,8 @@ done{4 - add snack functionality to welcome user after login redirection}
 done(5 - add snack functionality to confirm that user has logged out after disconnecting)
 done{6 - add support to redirect user to the page it was before loggin in}
 done{7 - handling errors on adding professor form and passing it to user}
+done{8 - add feedback option on homepage and navbar}
+9 - add commentary box on professor page
 
 Future Implementations:
 1 -  Add a comentary box for each professor
