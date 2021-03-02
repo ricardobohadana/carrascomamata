@@ -155,6 +155,7 @@ export default function Homepage(props) {
         placeholder="Pesquise pelo nome do professor, universidade ou disciplina..."
         type="text"
         name=""
+        autoComplete="off"
         id="searchInput"
         onChange={handleSearchTextChange}
       />

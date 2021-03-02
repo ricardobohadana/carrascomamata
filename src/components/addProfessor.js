@@ -205,6 +205,7 @@ function AddProfessorModal(props) {
                 NOME:
               </label>
               <input
+                autoComplete="off"
                 className={`${classes.padding} ${classes.input}`}
                 placeholder="Ex: Fulano de Tal"
                 type="text"
